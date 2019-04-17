@@ -80,6 +80,11 @@
 			<version>${rxnetty.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
