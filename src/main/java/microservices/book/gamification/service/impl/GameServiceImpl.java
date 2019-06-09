@@ -78,7 +78,7 @@ class GameServiceImpl implements GameService {
 	 */
 	@Override
 	public GameStats retrieveStatsForUser(Long userId) {
-		int score = scoreCardRepository.getTotalScoreForUser(userId);
+		Integer score = scoreCardRepository.getTotalScoreForUser(userId);
 
 		List<Badge> badges = badgeCardRepository.findByUserIdOrderByBadgeTimestampDesc(userId).stream()
 				.map(BadgeCard::getBadge).collect(Collectors.toList());
@@ -92,7 +92,7 @@ class GameServiceImpl implements GameService {
 	 */
 	private List<BadgeCard> processForBadges(final Long userId, final Long attemptId) {
 		List<BadgeCard> badgeCards = new ArrayList<>();
-		int totalScore = scoreCardRepository.getTotalScoreForUser(userId);
+		Integer totalScore = scoreCardRepository.getTotalScoreForUser(userId);
 		log.info("New score for user with ID {} is {}", userId, totalScore);
 		List<ScoreCard> scoreCardList = scoreCardRepository.findByUserIdOrderByScoreTimestampDesc(userId);
 		List<BadgeCard> badgeCardList = badgeCardRepository.findByUserIdOrderByBadgeTimestampDesc(userId);
